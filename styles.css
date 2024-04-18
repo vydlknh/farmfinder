@@ -16,9 +16,9 @@
   --bulma-primary: hsla(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l), 1);
   --bulma-primary-base: hsla(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l), 1);
   --bulma-primary-rgb: 0, 209, 178;
-  --bulma-primary-h: 171deg;
+  --bulma-primary-h: 25deg;
   --bulma-primary-s: 100%;
-  --bulma-primary-l: 41%;
+  --bulma-primary-l: 96.7%;
   --bulma-primary-00-l: 1%;
   --bulma-primary-05-l: 6%;
   --bulma-primary-10-l: 11%;
@@ -35,5 +35,8 @@
   --bulma-size-medium: 1.25rem;
   --bulma-size-large: 1.5rem;
   /* etc. */
+}
 
+.navbar-item:hover{
+  background-color:var(--bulma-primary-light) !important;
 }

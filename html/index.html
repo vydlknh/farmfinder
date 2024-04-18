@@ -1,86 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FarmFinder</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="stylesheet" href="/styles.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
-  <body class>
-    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/html/index.html">
-          <span class="is-size-3 has-text-weight-bold mx-1">
+  <body class="has-background-primary">
+    <div id="nav-placeholder"></div>
+    <section class="hero is-fullheight has-bg-img" style="background-image: url(/images/banner.jpg); background-position: center top; background-size: cover;">
+      <div class="hero-body">
+        <div class="container has-text-centered ">
+          <h1 class="title is-size-1 mb-3 has-text-primary">
             FarmFinder
-          </span>
-        </a>
-    
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-    
-      <div id="navbarMenu" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item is-hoverable" href="/html/index.html">
-            <span class="has-text-weight-bold">
-              Home
-            </span>
-          </a>
-          <a class="navbar-item is-hoverable">
-            <span class="has-text-weight-bold">
-              Find a Farm
-            </span>          
-          </a>
-        </div>
-      </div>
-    </nav>
-  <section class="hero is-fullheight has-bg-img" style="background-image: url(/images/banner.jpg); background-position: center top; background-size: cover;">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title is-size-1 mb-3">
-          FarmFinder
-        </h1>
-        <element class="has-text-white">
-          <p class="is-size-5 m-3">
-            A local farmer's market directory for you
-          </p>
-        </element>
-        <div class="columns is-centered">
-          <div class="column">
-            <button class="button is-link mx-2">Search by product</button>
-            <button class="button is-link mx-2">Search by location</button>
+          </h1>
+          <element class="has-text-primary">
+            <p class="is-size-5 m-3">
+              A local farmer's market directory for you
+            </p>
+          </element>
+          <div class="columns is-centered">
+            <div class="column">
+              <a class="button is-link mx-2" href="/html/map.html">Find a Farm</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section is-large">
-    <div class="columns">
-      <div class="column is-half">
-        <h1 class="title is-size-1">
-          About Us
-        </h1>
-        <element class="has-text-white">
-          <p class="is-size-5 my-3">
-            At FarmFinder, we're on a mission to connect you with the vibrant world of farmer's markets, one delicious discovery 
-            at a time.
-          </p>
-          <p class="is-size-5 my-3">
-            Our passion lies in supporting local farmers, artisans, and communities while helping you discover the 
-            freshest produce and artisanal goods available in your area.
-          </p>
-        </element>
+    </section>
+    <section class="section is-large">
+      <div class="columns">
+        <div class="column is-half">
+          <h1 class="title is-size-1 has-text-primary-dark">
+            About Us
+          </h1>
+          <element class="has-text-primary-dark">
+            <p class="is-size-5 my-3">
+              At FarmFinder, we're on a mission to connect you with the vibrant world of farmer's markets, one delicious discovery 
+              at a time.
+            </p>
+            <p class="is-size-5 my-3">
+              Our passion lies in supporting local farmers, artisans, and communities while helping you discover the 
+              freshest produce and artisanal goods available in your area.
+            </p>
+          </element>
+        </div>
+        <div class="column">
+          <img src="https://www.du.edu/sites/default/files/styles/featured_media_image_1200_x_801/public/Boulder%20Market%20smaller.png?itok=hT3Mb_va" alt="farmers market">
+        </div>
       </div>
-      <div class="column">
-        <img src="https://www.du.edu/sites/default/files/styles/featured_media_image_1200_x_801/public/Boulder%20Market%20smaller.png?itok=hT3Mb_va" alt="farmers market">
-      </div>
-    </div>
-  </section>
+    </section>
+    <script>
+      $(function(){
+        $("#nav-placeholder").load("nav.html");
+      });
+    </script>
   </body>
 </html>
