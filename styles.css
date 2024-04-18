@@ -40,3 +40,7 @@
 .navbar-item:hover{
   background-color:var(--bulma-primary-light) !important;
 }
+
+gmp-map {
+  height: 100%;
+}

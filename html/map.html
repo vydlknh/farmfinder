@@ -7,11 +7,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="stylesheet" href="/styles.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjYCKQ10b4HQRt28IodYoD3ORlGaz7Rhs&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
   </head>
   <body class="has-background-primary">
     <div id="nav-placeholder"></div>
     <div class="columns">
-      <div class="column is-two-fifths"></div>
+      <div class="column is-two-fifths mx-2">
+        <div class="control m-2">
+          <input class="input" type="text" placeholder="Enter Zip Code" />
+        </div>
+        <div class="control m-2">
+          <div class="columns">
+            <div class="column is-three-quarters pr-0">
+              <input class="input" type="text" placeholder="Search for a product" />        
+            </div>
+            <div class="column">
+              <button class="button is-link is-fullwidth">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column mr-2">
+        <gmp-map style="height: 95vh;" center="39.63592529296875,-86.8604507446289" zoom="14" map-id="DEMO_MAP_ID">
+          <gmp-advanced-marker position="39.63592529296875,-86.8604507446289" title="My location"></gmp-advanced-marker>
+        </gmp-map>
+      </div>
     </div>
     <script>
     $(function(){
