@@ -15,15 +15,15 @@
     <div class="columns">
       <div class="column is-two-fifths mx-2">
         <div class="control m-2">
-          <input class="input" type="text" placeholder="Enter Zip Code" />
+          <input class="input" id="zipcode" type="number" max="99999" placeholder="Enter Zip Code" />
         </div>
         <div class="control m-2">
           <div class="columns">
             <div class="column is-three-quarters pr-0">
-              <input class="input" type="text" placeholder="Search for a product" />        
+              <input class="input" id="product" type="text" placeholder="Search for a product" />        
             </div>
             <div class="column">
-              <button class="button is-link is-fullwidth">Search</button>
+              <button class="button is-link is-fullwidth" onclick="searchFunction()">Search</button>
             </div>
           </div>
         </div>
@@ -38,5 +38,10 @@
     $(function(){
       $("#nav-placeholder").load("nav.html");
     });
+
+    function searchFunction() {
+      let zipcode = document.getElementById("zipcode").value
+      let product = document.getElementById("product").value
+    }
     </script>
   </body>
