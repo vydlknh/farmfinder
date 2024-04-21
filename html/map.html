@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="stylesheet" href="/styles.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjYCKQ10b4HQRt28IodYoD3ORlGaz7Rhs&callback=console.debug&libraries=maps,marker&v=beta">
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjYCKQ10b4HQRt28IodYoD3ORlGaz7Rhs&loading=async&callback=console.debug&libraries=maps,marker&v=beta">
     </script>
   </head>
   <body class="has-background-primary">
@@ -23,7 +23,8 @@
               <input class="input" id="product" type="text" placeholder="Search for a product" />        
             </div>
             <div class="column">
-              <button class="button is-link is-fullwidth" onclick="searchFunction()">Search</button>
+              <button id="submit" class="button is-link is-fullwidth">Search</button>  
+              <script type="module" src="/src/search.js"></script>
             </div>
           </div>
         </div>
@@ -38,10 +39,5 @@
     $(function(){
       $("#nav-placeholder").load("nav.html");
     });
-
-    function searchFunction() {
-      let zipcode = document.getElementById("zipcode").value
-      let product = document.getElementById("product").value
-    }
     </script>
   </body>
