@@ -1,21 +1,27 @@
 import { parse } from '/modules/index.js'
-import { search_by_county, search_by_state, search_by_zip } from '/modules/search_functions.js'
+import { search_by_state } from '/modules/search_functions.js'
 import {html, render} from 'https://esm.run/lit-html@1';
 
 let button = document.getElementById('submit')
 button.addEventListener('click', search)
 
 
+// Search the database
 function search() {
+    // Grab the state and organization from their corresponding elements
     let state = document.getElementById('state').value
-    
+    let organization = document.getElementById('organization-type').value
+
+    // Get the proper .csv file depending on the organization type chosen by user
+    const file = get_file_by_organization_type(organization)
+
     // Fetch CSV data
-    fetch_csv('/data/geocoded/csa_2024_geocoded.csv')
+    fetch_csv(file)
     .then(parsedData => {
         // Search the parsed data for entries with matching zipcode
-        //let results = search_by_zip(parsedData, zipcode)
         let results = search_by_state(parsedData, state)
-        // let results = search_by_county(parsedData, 'Putnam')
+
+        // Render new cards on the DOM
         renderCard(results)
     })
     .catch(error => {
@@ -45,6 +51,12 @@ async function fetch_csv(path) {
 function get_file_by_organization_type(type) {
     switch (type) {
         case 'csa':
+            return '/data/geocoded/csa_2024_geocoded.csv'
+        case 'farmersmarket':
+            return '/data/geocoded/csa_2024_geocoded.csv'
+        case 'foodhub':
+            return '/data/geocoded/csa_2024_geocoded.csv'
+        case 'onfarmmarket':
             return '/data/geocoded/csa_2024_geocoded.csv'
     }
 }
