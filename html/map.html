@@ -17,7 +17,8 @@
         <div class="control m-2">
           <div class="columns">
             <div class="column pr-0">
-              <div class="dropdown is-fullwidth">
+              <input class="input" id="state" type="text" placeholder="Enter State" />
+              <!-- <div class="dropdown is-fullwidth">
                 <div class="dropdown-trigger">
                   <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
                     <span>Choose a Directory</span>
@@ -34,7 +35,7 @@
                     <a href="#" class="dropdown-item">On-Farm Market</a>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="column pr-0">
               <input class="input" id="zipcode" type="number" max="99999" placeholder="Enter Zip Code" />
@@ -44,13 +45,14 @@
               <script type="module" src="/src/search.js"></script>
             </div>
           </div>
+          <div class="columns is-centered">
+            <div class="column is-three-fifths">
+              <div id="displayListing"></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="column mr-2">
-        <gmp-map style="height: 95vh;" center="39.63592529296875,-86.8604507446289" zoom="14" map-id="DEMO_MAP_ID">
-          <gmp-advanced-marker position="39.63592529296875,-86.8604507446289" title="My location"></gmp-advanced-marker>
-        </gmp-map>
-      </div>
+      <div id="displayMap" class="column mr-2"></div>
     </div>
     <script>
       $(function(){
@@ -62,34 +64,5 @@
         event.stopPropagation();
         dropdown.classList.toggle('is-active');
       });
-
-      function renderCard(listings) {
-        listings.forEach(listing => {
-          const card = document.createElement('div')
-          card.classList = 'card'
-          const cardimage = document.createElement('div')
-          cardimage.classList = 'card-image'
-          const imgclass = document.createElement('figure')
-          imgclass.classList = 'image is-4by3'
-          const img = document.createElement('img')
-          img.classList = 'card-image'
-          img.src = '/images/card-farmers-market'
-          imgclass.appendChild(img)
-          cardimage.appendChild(imgclass)
-          card.appendChild(cardimage)
-
-          const cardcontent = document.createElement('div')
-          cardcontent.classList('card-content')
-          const title = document.createElement('p')
-          title.classList('title is-4')
-          title.innerText = `${listing.listing_name}`
-          cardcontent.appendChild(title)
-
-          const content = document.createElement('div')
-          content.innerText = `${listing.location_desc}<br>${listing.location_site}<br>${listing.location_indoor}<br>
-          <span class = "has-text-success">${listing.specialproductionmethods}</span><br>${listing.SNAP_option}`
-          cardcontent.appendChild(content)
-        });
-      }
     </script>
   </body>
