@@ -24,7 +24,7 @@ export function search_by_zip(data, zipcode) {
     })
 
     if(results.length == 0) {
-        alert('No farms found in ' + zipcode + ', please try a new zipcode')
+        alert('No results found in ' + zipcode + ', please try a new zipcode')
         return null
     }
     else {
@@ -58,7 +58,7 @@ export function search_by_state(data, state) {
     })
 
     if(results.length == 0) {
-        alert('No farms found in ' + state + ', please try a new state')
+        alert('No results found in ' + state + ', please try a new state')
         return null
     }
     else {
@@ -92,7 +92,7 @@ export function search_by_county(data, county) {
     })
 
     if(results.length == 0) {
-        alert('No farms found in ' + county + ', please try a new county')
+        alert('No results found in ' + county + ', please try a new county')
         return null
     }
     else {
