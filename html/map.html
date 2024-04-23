@@ -91,11 +91,28 @@
           <div class="columns is-centered">
             <div class="column is-three-fifths">
               <div id="displayListing"></div>
+              <script>
+                function show_on_map(lon, lat) {
+                  let gmap = document.getElementById('gmap')
+                  let listing_marker = document.getElementById('listing-marker')
+
+                  const coords = new google.maps.LatLng(lon, lat)
+
+                  listing_marker.position = coords
+                  gmap.center = coords
+
+                  $('html, body').animate({ scrollTop: 0 }, 'fast');
+                }    
+              </script>
             </div>
           </div>
         </div>
       </div>
-      <div id="displayMap" class="column mr-2"></div>
+      <div id="displayMap" class="column mr-2">
+        <gmp-map id="gmap" style="height: 95vh;" center="39.64449, -86.86473" zoom="14" map-id="DEMO_MAP_ID">
+          <gmp-advanced-marker id="listing-marker" position="39.64449,-86.86473" title="Listing"></gmp-advanced-marker>
+        </gmp-map>
+      </div>
     </div>
     <script>
       $(function(){

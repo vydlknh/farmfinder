@@ -5,6 +5,7 @@ import { render, html } from 'https://esm.run/lit-html@1'
 let button = document.getElementById('submit')
 button.addEventListener('click', search)
 
+// CSV indices
 var address_index
 var lat_index
 var lon_index
@@ -98,16 +99,10 @@ function renderCard(listing) {
         <div class="content">
             ${result[address_index]}
         </div>
-        <button class="button is-link is-fullwidth">Show On Map</button> 
+        <button class="button is-link is-fullwidth" onclick="show_on_map(${result[lon_index]}, ${result[lat_index]})">Show On Map</button> 
         </div>
     </div>
     `
-    const renderMap = (result) => html`
-    <gmp-map style="height: 95vh;" center="${result[lon_index]},${result[lat_index]}" zoom="14" map-id="DEMO_MAP_ID">
-        <gmp-advanced-marker position="${result[lon_index]},${result[lat_index]}" title="Listing Location"></gmp-advanced-marker>
-    </gmp-map>
-    `
-
 
     for (let index = 0; index < listing.length; index++) {
         const element = listing[index];
@@ -117,5 +112,4 @@ function renderCard(listing) {
     }
 
     
-    render(renderMap(listing[0]), document.getElementById("displayMap"));
 }
